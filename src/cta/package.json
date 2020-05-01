@@ -1,0 +1,13 @@
+{
+  "name": "cta",
+  "version": "1.0.4",
+  "description": "Cta",
+  "folder": "/shared_res/agility/web-components/cta/",
+  "tag": "n-cta",
+  "author": "HQ Front end",
+  "scripts": {
+    "module": "/shared_res/agility/web-components/cta/index.es.min.js",
+    "nomodule": "/shared_res/agility/web-components/cta/index.legacy.min.js"
+  },
+  "preview": "/shared_res/agility/web-components/cta/preview.png"
+}
