@@ -3,5 +3,44 @@
   "type": "object",
   "title": "Cta",
   "properties": {
+    "tracking": {
+      "type": "string",
+      "title": "Tracking label"
+    },
+    "size": {
+      "type": "string",
+      "title": "Size of the CTA",
+      "description": "Number between 1 and 6"
+    },
+    "size_mobile": {
+      "type": "string",
+      "title": "Size of the CTA (In Mobile)",
+      "description": "Number between 1 and 6"
+    },
+    "look": {
+      "type": "string",
+      "options": {
+        "enum_titles": [
+          "",
+          "Primary (Gold background)",
+          "subtle (White with frame)",
+          "link (Link)",
+          "link-gold (Link colored)"
+        ]
+      },
+      "enum": [
+        "",
+        "primary",
+        "subtle",
+        "link",
+        "link-gold"
+      ],
+      "title": "Style of the link"
+    },
+    "link": {
+      "type": "string",
+      "title": "URL of the link",
+      "description": "<a target=_blank href= https://www.webstix.com/knowledgebase/general/relative-links-vs-absolute-links/>Relative link</a> start with ./ to keep current path."
+    }
   }
 }

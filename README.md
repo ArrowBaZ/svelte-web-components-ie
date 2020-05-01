@@ -52,29 +52,57 @@ export let title
 ### Declare the tag
 
 ```
-<svelte:options tag="n-hero-cta"/>
+<svelte:options tag="n-cta"/>
 ``` 
-
-## Schema
-
-You need to provide 3 properties read by the page builder:
-- `title` is the public title saw by users 
-- `tag` tag include by the page builder it will be convert into `<tag></tag>`
-- `folder` it's the folder where the component is located after the root 
 
 ```
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
-  "title": "USP List (Unique Selling Points)",
-  "tag": "n-usp",
-  "folder": "usp",
+  "title": "Cta",
   "properties": {
-    "title": {
+    "tracking": {
       "type": "string",
-      "title": "Section title",
-      "default": "SHOP example.org AND ENJOY"
+      "title": "Tracking label"
     },
+    "size": {
+      "type": "string",
+      "title": "Size of the CTA",
+      "description": "Number between 1 and 6"
+    },
+    "size_mobile": {
+      "type": "string",
+      "title": "Size of the CTA (In Mobile)",
+      "description": "Number between 1 and 6"
+    },
+    "look": {
+      "type": "string",
+      "options": {
+        "enum_titles": [
+          "",
+          "Primary (Gold background)",
+          "subtle (White with frame)",
+          "link (Link)",
+          "link-gold (Link colored)"
+        ]
+      },
+      "enum": [
+        "",
+        "primary",
+        "subtle",
+        "link",
+        "link-gold"
+      ],
+      "title": "Style of the link"
+    },
+    "link": {
+      "type": "string",
+      "title": "URL of the link",
+      "description": "<a target=_blank href= https://www.webstix.com/knowledgebase/general/relative-links-vs-absolute-links/>Relative link</a> start with ./ to keep current path."
+    }
+  }
+}
+
 ```
 
 ## Build component
