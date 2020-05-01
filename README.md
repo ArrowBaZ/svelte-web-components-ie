@@ -20,6 +20,64 @@ Go to localhost:8080
 npm run build
 ```
 
+# Rollup configuration
+
+There is 3 parts.
+
+## configDev
+
+`configDev` is the config read when you are doing `npm run serve`
+
+## configProd
+
+`configProd` is the config read when you are doing build, it's running twice, one for modern build, one for older browser like ie.
+
+For IE compatibility, on may need more plugin in Babel.
+
+```
+babel({
+                extensions: ['.js', '.mjs', '.html', '.svelte'],
+                runtimeHelpers: true,
+                exclude: ['node_modules/@babel/**', 'node_modules/core-js/**'],
+
+                babelrc: false,
+                plugins: [
+                    '@babel/plugin-transform-runtime'
+                ],
+                presets: [
+```
+
+Could be something like:
+
+```
+babel({
+    babelrc: false,
+    plugins: [
+        '@babel/plugin-transform-runtime',
+        '@babel/plugin-transform-spread',
+        '@babel/plugin-transform-async-to-generator'
+    ],
+    presets: [
+        [
+            '@babel/preset-env',
+            {
+                targets: {
+                    'browsers': [
+                        '> 1%',
+                        'last 2 versions',
+                        'Firefox ESR',
+                        'not op_mini all',
+                        'ie >= 10'
+                    ]
+                },
+                modules: false,
+                useBuiltIns: 'usage',
+                corejs: { version: 3, proposals: true }
+            }
+        ]
+    ],
+```
+
 # Start building you component
 
 In `App.svelte` add you components import and tag
